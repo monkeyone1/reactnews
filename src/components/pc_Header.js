@@ -44,16 +44,27 @@ class PCHeader extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		var myFetchOpyions={
+		var myFetchOptions={
 			 method:'GET'
 		};
 	//获取所有表单数据
 
-		var formData= this.props.form.getFieldValue();
-
+		var formData = this.props.form.getFieldsValue();
+		console.log(formData);
+		fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
+		+ "&username="+formData.userName+"&password="+formData.password
+		+"&r_userName=" + formData.r_userName + "&r_password="
+		+ formData.r_password + "&r_confirmPassword="
+		+ formData.r_confirmPassword, myFetchOptions)
+		.then(response => response.json())
+		.then(json => {
+			this.setState({userNickName: json.NickUserName, userid: json.UserId});
+		});
+		message.success('请求成功');
+		this.setModalVisible(false);
 	}
 	render() {
-		let { getFieldDecorator } = this.props.form;
+		let { getFieldProps } = this.props.form;
 		const userShow = this.state.hasLogined ?
 			<Menu.Item key='logout' className='register'>
 				<Button type="primary" htmlType="button">{this.state.userNickName}</Button>
@@ -114,10 +125,10 @@ class PCHeader extends Component {
 								<TabPane tab="登录" key="1">
 									<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 										<FormItem label="账户">
-											<Input placeholder="请输入您的账号" {...getFieldDecorator('userName') } />
+											<Input placeholder="请输入您的账号" {...getFieldProps('userName') } />
 										</FormItem>
 										<FormItem label="密码">
-											<Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('password') } />
+											<Input type="password" placeholder="请输入您的密码" {...getFieldProps('password') } />
 										</FormItem>
 										<Button type="primary" htmlType="submit">登录</Button>
 									</Form>
@@ -126,13 +137,13 @@ class PCHeader extends Component {
 								<TabPane tab="注册" key="2">
 									<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 										<FormItem label="账户">
-											<Input placeholder="请输入您的账号" {...getFieldDecorator('r_userName') } />
+											<Input placeholder="请输入您的账号" {...getFieldProps('r_userName') } />
 										</FormItem>
 										<FormItem label="密码">
-											<Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('r_password') } />
+											<Input type="password" placeholder="请输入您的密码" {...getFieldProps('r_password') } />
 										</FormItem>
 										<FormItem label="确认密码">
-											<Input type="password" placeholder="请再次输入您的密码" {...getFieldDecorator('r_confirmPassword') } />
+											<Input type="password" placeholder="请再次输入您的密码" {...getFieldProps('r_confirmPassword') } />
 										</FormItem>
 										<Button type="primary" htmlType="submit">注册</Button>
 									</Form>

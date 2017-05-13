@@ -15,5 +15,16 @@ export default StyleSheet.create({
   },
   'footer': {
     'textAlign': 'center'
+  },
+  'container': {
+    'paddingTop': [{ 'unit': 'px', 'value': 10 }]
+  },
+  'leftContainer': {
+    'width': [{ 'unit': 'px', 'value': 400 }],
+    'float': 'left'
+  },
+  'carousel': {
+    'width': [{ 'unit': 'px', 'value': 400 }],
+    'float': 'left'
   }
 });
