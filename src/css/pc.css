@@ -30,3 +30,25 @@
     width: 400px;
     float: left;
 }
+
+
+.carousel img {
+    width: 400px;
+    height: 260px;
+}
+
+.topNewsList {
+    float: left;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.tabs_news {
+    padding-left: 10px;
+    width: 460px;
+    float: left;
+}
+.topNewsList a {
+    line-height: 22px ;
+    color: #666 ;
+}

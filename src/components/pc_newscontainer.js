@@ -6,6 +6,9 @@ import carousel_1 from '../images/carousel_1.jpg';
 import carousel_2 from '../images/carousel_2.jpg';
 import carousel_3 from '../images/carousel_3.jpg';
 import carousel_4 from '../images/carousel_4.jpg';
+
+import PCNewsBlock from './pc_news_block';
+
 class PCnewContainner extends Component {
 
   render() {
@@ -31,6 +34,14 @@ class PCnewContainner extends Component {
                   <div><img src={carousel_4}/></div>
                 </Carousel>
         </div>
+        	<Tabs className="tabs_news">
+							<TabPane tab="头条新闻" key="1">
+								<PCNewsBlock count={22} type="top" width="100%" bordered="false"/>
+							</TabPane>
+							<TabPane tab="国际" key="2">
+								<PCNewsBlock count={22} type="guoji" width="100%" bordered="false"/>
+							</TabPane>
+						</Tabs>
         </Col>
         <Col span={2}></Col>
 

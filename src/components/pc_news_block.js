@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card } from 'antd';
 import { Link } from 'react-router';
 
+
 class PCNewBlock extends Component {
   	constructor() {
 		super();
