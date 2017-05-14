@@ -23,7 +23,7 @@ class PCHeader extends Component {
 		};
 	}
 	handleClick = (e) => {
-		if (e.key = 'register') {
+		if (e.key == 'register') {
 			this.setState({ current: 'register' });
 			this.setModalVisible(true);
 		} else {

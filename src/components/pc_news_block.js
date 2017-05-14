@@ -21,6 +21,7 @@ class PCNewBlock extends Component {
     .then(json => this.setState({ news: json }));
   };
   render() {
+	
     	const {news} = this.state;
     const newsList = news.length
 			? news.map((newsItem, index) => (
@@ -31,7 +32,7 @@ class PCNewBlock extends Component {
 				</li>
 			))
 			: '没有加载到任何新闻';
-
+			
     return (
       
      <div className="topNewsList">

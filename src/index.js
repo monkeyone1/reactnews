@@ -4,22 +4,17 @@ import PCIndex from './components/pc_index';
 import 'antd/dist/antd.css';
 import MediaQuery from 'react-responsive';
 import MobileIndex from './components/mobile_index';
-import { Router,Route,hashhistory } from 'react-router';
-import Hello from './components/hello';
+import PCRouter from './components/pc_router';
+import MobileRouter from './components/mobile_router';
 
-const routers=()=>(
- <Router history={hashhistory}>
-    <Route path='/' component={Hello}/>
 
- </Router>
-);
 
 const app = <div>
   <MediaQuery query='(max-device-width: 1224px)'>
-    <MobileIndex />
+    <MobileRouter />
   </MediaQuery>
   <MediaQuery query='(min-device-width: 1224px)' >
-  <PCIndex/></MediaQuery>
+   <PCRouter/></MediaQuery>
 </div>
 ReactDOM.render(
 
