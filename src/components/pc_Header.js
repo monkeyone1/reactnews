@@ -60,6 +60,9 @@ class PCHeader extends Component {
 		.then(json => {
 			this.setState({userNickName: json.NickUserName, userid: json.UserId});
 		});
+		if (this.state.action=="login") {
+			this.setState({hasLogined:true});
+		}
 		message.success('请求成功');
 		this.setModalVisible(false);
 	}

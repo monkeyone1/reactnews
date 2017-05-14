@@ -2,6 +2,7 @@ import React from 'react';
 import {Row, Col} from 'antd';
 import PCHeader from './pc_Header';
 import PCFooter from './pc_Footer';
+import CommonComments from './common_comments';
 
 export default class PCNewsDetails extends React.Component {
 	constructor() {
@@ -30,7 +31,8 @@ export default class PCNewsDetails extends React.Component {
 				<Row>
 					<Col span={2}></Col>
 					<Col span={14} className="container">
-						<div class="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
+          <div className="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
+          	<CommonComments uniquekey={this.props.params.uniquekey}/>
 					</Col>
 					<Col span={6}></Col>
            <PCFooter/>
