@@ -21,12 +21,12 @@ class MobileHeader extends Component {
       userid: 0
     };
   };
-  componentWillMount(){
-		if (localStorage.userid!='') {
-			this.setState({hasLogined:true});
-			this.setState({userNickName:localStorage.userNickName,userid:localStorage.userid});
-		}
-	};
+  // componentWillMount(){
+	// 	if (localStorage.userid!='') {
+	// 		this.setState({hasLogined:true});
+	// 		this.setState({userNickName:localStorage.userNickName,userid:localStorage.userid});
+	// 	}
+	// };
   setModalVisible(value) {
     this.setState({ modalVisible: value });
   };
@@ -79,7 +79,7 @@ class MobileHeader extends Component {
   render() {
     let { getFieldProps } = this.props.form;
     const userShow = this.state.hasLogined ?
-      <Link>
+      <Link to='/usercenter'>
         <Icon type="inbox" />
       </Link>
       :

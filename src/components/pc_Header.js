@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Tabs, message, Form, Input, Button, CheckBox, Modal } from 'antd';
+import { Row, Col, Tabs, message, Form, Input, Button, Modal } from 'antd';
 import { Menu, Icon } from 'antd';
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
@@ -23,7 +23,7 @@ class PCHeader extends Component {
 		};
 	}
 	handleClick = (e) => {
-		if (e.key == 'register') {
+		if (e.key === 'register') {
 			this.setState({ current: 'register' });
 			this.setModalVisible(true);
 		} else {
@@ -60,7 +60,7 @@ class PCHeader extends Component {
 		.then(json => {
 			this.setState({userNickName: json.NickUserName, userid: json.UserId});
 		});
-		if (this.state.action=="login") {
+		if (this.state.action==="login") {
 			this.setState({hasLogined:true});
 		}
 		message.success('请求成功');
@@ -71,7 +71,7 @@ class PCHeader extends Component {
 		const userShow = this.state.hasLogined ?
 			<Menu.Item key='logout' className='register'>
 				<Button type="primary" htmlType="button">{this.state.userNickName}</Button>
-				<Link to="">
+				<Link to="/usercenter">
 					<Button type="dashed" htmlType="button">个人中心</Button>
 				</Link>
 				&nbsp;&nbsp;
@@ -87,10 +87,10 @@ class PCHeader extends Component {
 				<Row>
 					<Col span={2}></Col>
 					<Col span={4}>
-						<a href="/" className="logo">
-							<img src={logo} alt="logo" />
-							<span>ReactNews</span>
-						</a>
+					 <Link  to='/' className='logo'>
+        <img src={logo} alt="logo" />
+          <span>ReactNews</span>
+        </Link>
 					</Col>
 					<Col span={16}>
 						<Menu onClick={this.handleClick.bind(this)} mode="horizontal" selectedKeys={[this.state.current]}>
