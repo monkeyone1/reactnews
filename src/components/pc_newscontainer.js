@@ -7,7 +7,7 @@ import carousel_2 from '../images/carousel_2.jpg';
 import carousel_3 from '../images/carousel_3.jpg';
 import carousel_4 from '../images/carousel_4.jpg';
 import PCNewsImageBlock from './pc_news_imge_block';
-
+import PCProduct from './pc_products';
 import PCNewsBlock from './pc_news_block';
 
 class PCnewContainner extends Component {
@@ -45,6 +45,11 @@ class PCnewContainner extends Component {
                 <PCNewsBlock count={22} type="guoji" width="100%" bordered="false" />
               </TabPane>
             </Tabs>
+            <Tabs class="tabs_product">
+							<TabPane tab="ReactNews 产品" key="1">
+								<PCProduct/>
+							</TabPane>
+						</Tabs>
             <div>
             	<PCNewsImageBlock count={8} type="guonei" width="100%" cartTitle="国内新闻" imageWidth="132px"/>
 							<PCNewsImageBlock count={16} type="yule" width="100%" cartTitle="娱乐新闻" imageWidth="132px"/>
